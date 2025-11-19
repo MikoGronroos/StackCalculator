@@ -1,5 +1,6 @@
 #include "stack.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int addToStack(stack* stack, char* input){
   if(stack->length <= 0){
@@ -14,6 +15,7 @@ int addToStack(stack* stack, char* input){
 
 char* pop(stack* stack){
   if(stack->length <= 0){
+    printf("xdd");
     return NULL;
   }
   stack->length--;

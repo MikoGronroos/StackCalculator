@@ -65,16 +65,15 @@ int run(char input[]){
       }
       addToStack(operators, operatorChar); 
     }
-    char* newChar = pop(operators);
-    printf("%s", newChar);
-   // while(operators->length > 0){
-        
-      //char* newChar = pop(operators);
-      //addToStack(output, newChar);
 
-    //}
     index++;
     character = input[index];
+  }
+  while(operators->length > 0){
+        
+    char* newChar = pop(operators);
+    addToStack(output, newChar);
+
   }
 
   for(int i = output->length - 1; i >= 0; i--){
