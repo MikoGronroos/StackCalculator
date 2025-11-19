@@ -15,21 +15,24 @@ int run(char input[]){
       *outputChar = character;
       addToStack(output, outputChar);
     }else{
-      char operatorChar = character;
-      addToStack(operators, &operatorChar);
+      char* operatorChar = malloc(sizeof(char));
+      *operatorChar = character;
+      addToStack(operators, operatorChar);
     }
     index++;
     character = input[index];
   }
-  printf("%i", output->length);
+
   for(int i = output->length - 1; i >= 0; i--){
-    printf("xd\n");
-    //char* test = pop(output);
     printf("%s\n", output->stackContent[i].content);
 
   }
 
-  printf("----------\n");
+  printf("------\n");
 
+  for(int i = operators->length - 1; i >= 0; i--){
+    printf("%s\n", operators->stackContent[i].content);
+
+  }
   return 0;
 }

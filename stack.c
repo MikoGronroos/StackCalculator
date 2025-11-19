@@ -2,12 +2,12 @@
 #include <stdlib.h>
 
 int addToStack(stack* stack, char* input){
-  stack->length++;
   if(stack->length <= 0){
     stack->stackContent = malloc(sizeof(content));
   }else{
     int *memory = realloc(stack->stackContent, stack->length * sizeof(content));
   }
+  stack->length++;
   stack->stackContent[stack->length-1].content = input;
   return 0;
 }
