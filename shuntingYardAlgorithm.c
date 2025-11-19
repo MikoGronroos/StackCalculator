@@ -18,9 +18,11 @@ int run(char input[]){
       char* operatorChar = malloc(sizeof(char));
       *operatorChar = character;
       addToStack(operators, operatorChar);
-     // while(operators->){
+      if(operators->length > 1){
+        while(operators->stack[1] != '(' && (getPrecedence(operators->stack[1]) > getPrecedence(operators->stack[0]) || (getPrecedence(operators->stack[1]) == getPrecedence(operators->stack[0])  &&))){
         
-      //}
+        }
+      }
     }
     index++;
     character = input[index];
@@ -57,4 +59,24 @@ int getPrecedence(char operator){
     return 2;
   }
   return 0;
+}
+
+char* getAssociativity(char operator){
+  if(operator == '^'){
+    return "right";
+  }
+  if(operator == '*'){
+    return "left";
+  }
+  if(operator == '/'){
+    return "left";
+  }
+  if(operator == '+'){
+    return "left";
+  }
+  if(operator == '-'){
+    return "left"
+  }
+  return "none";
+
 }
