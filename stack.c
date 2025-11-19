@@ -6,7 +6,7 @@ int addToStack(stack* stack, char* input){
   if(stack->length <= 0){
     stack->stackContent = malloc(sizeof(content));
   }else{
-    realloc(stack->stackContent, stack->length * sizeof(content));
+    int *memory = realloc(stack->stackContent, stack->length * sizeof(content));
   }
   stack->stackContent[stack->length-1].content = input;
   return 0;
@@ -21,7 +21,7 @@ char* pop(stack* stack){
   if(stack->length <= 0){
     free(stack->stackContent);
   }else{
-    realloc(stack->stackContent, stack->length * sizeof(content));
+    int* memory = realloc(stack->stackContent, stack->length * sizeof(content));
   }
   return newContent;
 }
