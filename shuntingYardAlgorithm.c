@@ -18,23 +18,23 @@ int run(char input[]){
       char* operatorChar = malloc(sizeof(char));
       *operatorChar = character;
       addToStack(operators, operatorChar);
-      while(){
+     // while(operators->){
         
-      }
+      //}
     }
     index++;
     character = input[index];
   }
 
   for(int i = output->length - 1; i >= 0; i--){
-    printf("%s\n", output->stackContent[i].content);
+    printf("%s\n", output->stack[i].content);
 
   }
 
   printf("------\n");
 
   for(int i = operators->length - 1; i >= 0; i--){
-    printf("%s\n", operators->stackContent[i].content);
+    printf("%s\n", operators->stack[i].content);
 
   }
   return 0;

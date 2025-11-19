@@ -7,7 +7,7 @@ typedef struct content{
 typedef struct stack{
 
   int length;
-  content* stackContent;
+  content* stack;
 
 } stack;
 

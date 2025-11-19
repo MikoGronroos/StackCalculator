@@ -3,12 +3,12 @@
 
 int addToStack(stack* stack, char* input){
   if(stack->length <= 0){
-    stack->stackContent = malloc(sizeof(content));
+    stack->stack = malloc(sizeof(content));
   }else{
-    int *memory = realloc(stack->stackContent, stack->length * sizeof(content));
+    int *memory = realloc(stack->stack, stack->length * sizeof(content));
   }
   stack->length++;
-  stack->stackContent[stack->length-1].content = input;
+  stack->stack[stack->length-1].content = input;
   return 0;
 }
 
@@ -17,12 +17,12 @@ char* pop(stack* stack){
     return NULL;
   }
   stack->length--;
-  char* newContent = stack->stackContent[stack->length].content;
+  char* newContent = stack->stack[stack->length].content;
   if(stack->length <= 0){
-    free(stack->stackContent);
+    free(stack->stack);
   }else{
 
-    int* memory = realloc(stack->stackContent, stack->length * sizeof(content));
+    int* memory = realloc(stack->stack, stack->length * sizeof(content));
   }
   return newContent;
 }
@@ -30,6 +30,6 @@ char* pop(stack* stack){
 stack* allocateNewStack(){
   stack *newStack;
   newStack = malloc(sizeof(stack));
-  newStack->stackContent = malloc(sizeof(content));
+  newStack->stack = malloc(sizeof(content));
   return newStack;
 }
