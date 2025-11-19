@@ -53,16 +53,26 @@ int run(char input[]){
       char* outputChar = malloc(sizeof(char));
       *outputChar = character;
       addToStack(output, outputChar);
-    }else{
+    }
+    if(!isdigit(character)){
       char* operatorChar = malloc(sizeof(char));
       *operatorChar = character;
-      addToStack(operators, operatorChar);
-      if(operators->length > 1){
-        while(*operators->stack[1].content != '(' && (getPrecedence(*operators->stack[1].content) > getPrecedence(*operators->stack[0].content) || (getPrecedence(*operators->stack[1].content) == getPrecedence(*operators->stack[0].content) && getAssociativity(*operators->stack[0].content) == "left"))){
-        
+      if(operators->length >= 1){
+        while(*operators->stack[0].content != '(' && (getPrecedence(*operators->stack[0].content) > getPrecedence(*operatorChar) || (getPrecedence(*operators->stack[0].content) == getPrecedence(*operatorChar) && getAssociativity(*operatorChar) == "left"))){
+          char* newChar = pop(operators);
+          addToStack(output, newChar);  
         }
       }
+      addToStack(operators, operatorChar); 
     }
+    char* newChar = pop(operators);
+    printf("%s", newChar);
+   // while(operators->length > 0){
+        
+      //char* newChar = pop(operators);
+      //addToStack(output, newChar);
+
+    //}
     index++;
     character = input[index];
   }

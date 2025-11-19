@@ -2,6 +2,6 @@
 #include <stdio.h>
 
 int main(){
-  char* input = "1+2+4-5";
+  char* input = "1+2";
   run(input);
 }
