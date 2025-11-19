@@ -21,6 +21,7 @@ char* pop(stack* stack){
   if(stack->length <= 0){
     free(stack->stackContent);
   }else{
+
     int* memory = realloc(stack->stackContent, stack->length * sizeof(content));
   }
   return newContent;
