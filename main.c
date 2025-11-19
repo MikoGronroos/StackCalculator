@@ -1,6 +1,7 @@
-#include "stack.h"
+#include "shuntingYardAlgorithm.h"
 #include <stdio.h>
 
 int main(){
-  stack* output = allocateNewStack();
+  char* input = "1+2+4-5";
+  run(input);
 }
