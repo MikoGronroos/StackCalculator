@@ -1,1 +1,1 @@
-int calculate(stack output);
+int calculate(stack input);
