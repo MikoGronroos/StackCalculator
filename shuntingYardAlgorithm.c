@@ -18,6 +18,9 @@ int run(char input[]){
       char* operatorChar = malloc(sizeof(char));
       *operatorChar = character;
       addToStack(operators, operatorChar);
+      while(){
+        
+      }
     }
     index++;
     character = input[index];
@@ -33,6 +36,25 @@ int run(char input[]){
   for(int i = operators->length - 1; i >= 0; i--){
     printf("%s\n", operators->stackContent[i].content);
 
+  }
+  return 0;
+}
+
+int getPrecedence(char operator){
+  if(operator == '^'){
+    return 4;
+  }
+  if(operator == '*'){
+    return 3;
+  }
+  if(operator == '/'){
+    return 3;
+  }
+  if(operator == '+'){
+    return 2;
+  }
+  if(operator == '-'){
+    return 2;
   }
   return 0;
 }
