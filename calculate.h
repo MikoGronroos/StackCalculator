@@ -1,0 +1,1 @@
+int calculate(stack output);

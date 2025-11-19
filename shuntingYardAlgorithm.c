@@ -42,7 +42,7 @@ char* getAssociativity(char operator){
 
 }
 
-int run(char input[]){
+stack run(char input[]){
   printf("%s\n------\n", input);
   stack* output = allocateNewStack();
   stack* operators = allocateNewStack();
@@ -87,5 +87,5 @@ int run(char input[]){
     printf("%s\n", operators->stack[i].content);
 
   }
-  return 0;
+  return *output;
 }
