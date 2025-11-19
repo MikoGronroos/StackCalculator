@@ -9,4 +9,5 @@ int main(){
   
   int value = calculate(output);
 
+  printf("%i", value);
 }
