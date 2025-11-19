@@ -4,10 +4,11 @@
 #include "stack.h"
 
 int main(){
-  char* input = "1+2";
+  char* input = "1+2+9+1+2";
   stack output = run(input);
   
   int value = calculate(output);
 
-  printf("%i", value);
+  printf("%i\n", value);
+  return 0;
 }

@@ -4,7 +4,7 @@
 
 int addToStack(stack* stack, char* input){
   if(stack->length <= 0){
-    stack->stack = malloc(sizeof(content));
+    stack->stack = malloc(2 * sizeof(content));
   }else{
     int *memory = realloc(stack->stack, stack->length * sizeof(content));
   }
@@ -15,7 +15,6 @@ int addToStack(stack* stack, char* input){
 
 char* pop(stack* stack){
   if(stack->length <= 0){
-    printf("xdd");
     return NULL;
   }
   stack->length--;
@@ -23,7 +22,6 @@ char* pop(stack* stack){
   if(stack->length <= 0){
     free(stack->stack);
   }else{
-
     int* memory = realloc(stack->stack, stack->length * sizeof(content));
   }
   return newContent;
@@ -33,5 +31,6 @@ stack* allocateNewStack(){
   stack *newStack;
   newStack = malloc(sizeof(stack));
   newStack->stack = malloc(sizeof(content));
+  newStack->length = 0;
   return newStack;
 }

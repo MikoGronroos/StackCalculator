@@ -43,7 +43,6 @@ char* getAssociativity(char operator){
 }
 
 stack run(char input[]){
-  printf("%s\n------\n", input);
   stack* output = allocateNewStack();
   stack* operators = allocateNewStack();
   int index = 0;
@@ -73,18 +72,6 @@ stack run(char input[]){
         
     char* newChar = pop(operators);
     addToStack(output, newChar);
-
-  }
-
-  for(int i = output->length - 1; i >= 0; i--){
-    printf("%s\n", output->stack[i].content);
-
-  }
-
-  printf("------\n");
-
-  for(int i = operators->length - 1; i >= 0; i--){
-    printf("%s\n", operators->stack[i].content);
 
   }
   return *output;
