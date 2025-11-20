@@ -59,12 +59,12 @@ stack run(char input[]){
       if(operators->length >= 1){
         while(*operators->stack[0].content != '(' && (getPrecedence(*operators->stack[0].content) > getPrecedence(*operatorChar) || (getPrecedence(*operators->stack[0].content) == getPrecedence(*operatorChar) && getAssociativity(*operatorChar) == "left"))){
           char* newChar = pop(operators);
-          addToStack(output, newChar);  
+          addToStack(output, newChar); 
+          break;        
         }
       }
       addToStack(operators, operatorChar); 
     }
-
     index++;
     character = input[index];
   }

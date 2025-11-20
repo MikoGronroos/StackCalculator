@@ -4,9 +4,10 @@
 
 int addToStack(stack* stack, char* input){
   if(stack->length <= 0){
-    stack->stack = malloc(2 * sizeof(content));
+    stack->stack = malloc(2 * sizeof(struct content));
   }else{
-    int *memory = realloc(stack->stack, stack->length * sizeof(content));
+    content* newptr= realloc(stack->stack, (1 + stack->length) * sizeof(struct content));
+    stack->stack = newptr;
   }
   stack->length++;
   stack->stack[stack->length-1].content = input;
@@ -22,7 +23,8 @@ char* pop(stack* stack){
   if(stack->length <= 0){
     free(stack->stack);
   }else{
-    int* memory = realloc(stack->stack, stack->length * sizeof(content));
+    content* newptr = realloc(stack->stack, stack->length * sizeof(struct content));
+    stack->stack = newptr;
   }
   return newContent;
 }
@@ -30,7 +32,7 @@ char* pop(stack* stack){
 stack* allocateNewStack(){
   stack *newStack;
   newStack = malloc(sizeof(stack));
-  newStack->stack = malloc(sizeof(content));
+  newStack->stack = malloc(sizeof(struct content));
   newStack->length = 0;
   return newStack;
 }
