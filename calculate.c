@@ -13,26 +13,26 @@ int calculate(stack input){
       addToStack(output, newChar);
     }else{
       //printf("-------\n");
-      int secondNumber = atoi(pop(output));
-      int firstNumber = atoi(pop(output));
+      float secondNumber = atoi(pop(output));
+      float firstNumber = atoi(pop(output));
       char* newChar = malloc(sizeof(char));
       //printf("%i, %i\n", firstNumber, secondNumber);
       //printf("-------\n");
       if(character == '+'){
-        int final = firstNumber + secondNumber;
-        sprintf(newChar, "%d", final);
+        float final = firstNumber + secondNumber;
+        sprintf(newChar, "%f", final);
       }
       if(character == '-'){
-        int final = firstNumber - secondNumber;
-        sprintf(newChar, "%d", final);
+        float final = firstNumber - secondNumber;
+        sprintf(newChar, "%f", final);
       }
       if(character == '*'){
-        int final = firstNumber * secondNumber;
-        sprintf(newChar, "%d", final);
+        float final = firstNumber * secondNumber;
+        sprintf(newChar, "%f", final);
       }
       if(character == '/'){
-        int final = firstNumber / secondNumber;
-        sprintf(newChar, "%d", final);
+        float final = firstNumber / secondNumber;
+        sprintf(newChar, "%f", final);
       }
       addToStack(output, newChar);
     }
