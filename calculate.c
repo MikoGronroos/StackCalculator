@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <math.h>
 
 double calculate(stack input){
   stack* output = allocateNewStack(); 
@@ -29,6 +30,10 @@ double calculate(stack input){
       }
       if(character == '/'){
         double final = firstNumber / secondNumber;
+        sprintf(newChar, "%f", final);
+      }
+      if(character == '^'){
+        double final = pow(firstNumber, secondNumber);
         sprintf(newChar, "%f", final);
       }
       addToStack(output, newChar);

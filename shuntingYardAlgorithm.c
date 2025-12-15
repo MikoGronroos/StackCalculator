@@ -121,5 +121,11 @@ stack run(char input[]){
     addToStack(output, newChar);
 
   }
+
+  for(int i = 0; i < output->length; i++){
+
+    printf("%s xd\n", output->stack[i].content);
+  }
+
   return *output;
 }
