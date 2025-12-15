@@ -8,8 +8,8 @@ int main(){
   scanf("%255s", input);
   stack output = run(input);
   
-  int value = calculate(output);
+  double value = calculate(output);
 
-  printf("%i\n", value);
+  printf("%f\n", value);
   return 0;
 }

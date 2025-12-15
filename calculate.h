@@ -1,1 +1,1 @@
-int calculate(stack input);
+double calculate(stack input);

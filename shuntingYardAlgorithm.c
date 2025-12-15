@@ -43,6 +43,19 @@ char* getAssociativity(char operator){
 
 }
 
+int sizeOfNumber(char number[]){
+  char* character = &number[0];
+  int newNumber = 0;
+  while(*character != '\0'){
+    if(!isdigit(*character) && *character != '.'){
+      return newNumber;
+    }
+    newNumber++;
+    character = &number[newNumber];
+  }
+  return newNumber;
+}
+
 char* getNumber(char number[]){
   char* character = &number[0];
   char* newString = malloc (sizeof (char) * 128);
@@ -64,11 +77,12 @@ stack run(char input[]){
   stack* operators = allocateNewStack();
   int index = 0;
   char character = input[index];
-  char* newString = getNumber(&input[index]);
   while(character != '\0'){
+    int amountOfCharacters = 1;
     if(isdigit(character)){
-      char* outputChar = malloc(sizeof(char));
-      *outputChar = character;
+      amountOfCharacters = sizeOfNumber(&input[index]);
+      char* outputChar = malloc((amountOfCharacters + 4) * sizeof(char));
+      outputChar = getNumber(&input[index]);
       addToStack(output, outputChar);
     }
     if(!isdigit(character) && character != '(' && character != ')'){
@@ -98,7 +112,7 @@ stack run(char input[]){
         }
       }
     }
-    index++;
+    index = index + amountOfCharacters;
     character = input[index];
   }
   while(operators->length > 0){
