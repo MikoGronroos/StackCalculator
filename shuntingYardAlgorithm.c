@@ -48,7 +48,6 @@ char* getNumber(char number[]){
   char* newString = malloc (sizeof (char) * 128);
   int index = 0;
   while(*character != '\0'){
-    printf("%c xd\n", *character);
     if(!isdigit(*character) && *character != '.'){
       break;
     }
@@ -66,7 +65,6 @@ stack run(char input[]){
   int index = 0;
   char character = input[index];
   char* newString = getNumber(&input[index]);
-  printf("atoi %f\n", atof(newString));
   while(character != '\0'){
     if(isdigit(character)){
       char* outputChar = malloc(sizeof(char));

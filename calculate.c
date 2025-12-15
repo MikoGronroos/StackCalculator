@@ -12,12 +12,9 @@ int calculate(stack input){
       *newChar = character;
       addToStack(output, newChar);
     }else{
-      //printf("-------\n");
-      float secondNumber = atoi(pop(output));
-      float firstNumber = atoi(pop(output));
+      float secondNumber = atof(pop(output));
+      float firstNumber = atof(pop(output));
       char* newChar = malloc(sizeof(char));
-      //printf("%i, %i\n", firstNumber, secondNumber);
-      //printf("-------\n");
       if(character == '+'){
         float final = firstNumber + secondNumber;
         sprintf(newChar, "%f", final);
@@ -37,5 +34,5 @@ int calculate(stack input){
       addToStack(output, newChar);
     }
   }
-  return atoi(output->stack[0].content);
+  return atof(output->stack[0].content);
 }
