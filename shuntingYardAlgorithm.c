@@ -88,7 +88,7 @@ stack run(char input[]){
     int amountOfCharacters = sizeOfNumber(&input[index]);
     char* outputChar = malloc((amountOfCharacters + 4) * sizeof(char));
     outputChar = getNumber(&input[index]);
-    if(isdigit(*outputChar) || strcmp("pii", outputChar) == 0){
+    if(isdigit(*outputChar) || strcmp("pi", outputChar) == 0){
       addToStack(output, outputChar);
     } else if(!isdigit(*outputChar) && *outputChar != '(' && *outputChar != ')'){
       if(operators->length >= 1){

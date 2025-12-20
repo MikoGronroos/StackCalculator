@@ -9,7 +9,7 @@ double calculate(stack input){
   stack* output = allocateNewStack();
   for(int i = 0; i < input.length; i++){
     char* newChar = malloc(128*sizeof(char));
-    if(strcmp("pii", input.stack[i].content) == 0){
+    if(strcmp("pi", input.stack[i].content) == 0){
       double pii = atan(1.0) * 4.0;
       sprintf(newChar, "%f", pii);
       addToStack(output, newChar);
