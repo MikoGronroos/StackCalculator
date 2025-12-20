@@ -90,7 +90,7 @@ stack run(char input[]){
     outputChar = getNumber(&input[index]);
     if(isdigit(*outputChar) || strcmp("pii", outputChar) == 0){
       addToStack(output, outputChar);
-    } else if(!isdigit(character) && character != '(' && character != ')'){
+    } else if(!isdigit(*outputChar) && *outputChar != '(' && *outputChar != ')'){
       if(operators->length >= 1){
         while(*operators->stack[operators->length-1].content != '(' && (getPrecedence(*operators->stack[operators->length-1].content) > getPrecedence(*outputChar) || (getPrecedence(*operators->stack[operators->length-1].content) == getPrecedence(*outputChar) && getAssociativity(*outputChar) == "left"))){
           char* newChar = pop(operators);
@@ -99,9 +99,9 @@ stack run(char input[]){
         }
       }
       addToStack(operators, outputChar); 
-    }else if(!isdigit(*outputChar) && character == '('){
+    }else if(!isdigit(*outputChar) && *outputChar == '('){
       addToStack(operators, outputChar); 
-    }else if(!isdigit(*outputChar) && character == ')'){
+    }else if(!isdigit(*outputChar) && *outputChar == ')'){
       while(true){
         char* newChar = pop(operators);
         if(*newChar != '('){
@@ -120,11 +120,5 @@ stack run(char input[]){
     addToStack(output, newChar);
 
   }
-
-  for(int i = 0; i < output->length; i++){
-
-    //printf("%s xd\n", output->stack[i].content);
-  }
-
   return *output;
 }

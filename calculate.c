@@ -8,7 +8,6 @@
 double calculate(stack input){
   stack* output = allocateNewStack();
   for(int i = 0; i < input.length; i++){
-    char character = *input.stack[i].content;
     char* newChar = malloc(128*sizeof(char));
     if(strcmp("pii", input.stack[i].content) == 0){
       double pii = atan(1.0) * 4.0;
@@ -20,23 +19,23 @@ double calculate(stack input){
     }else{
       double secondNumber = atof(pop(output));
       double firstNumber = atof(pop(output));
-      if(character == '+'){
+      if(*input.stack[i].content == '+'){
         double final = firstNumber + secondNumber;
         sprintf(newChar, "%f", final);
       }
-      if(character == '-'){
+      if(*input.stack[i].content == '-'){
         double final = firstNumber - secondNumber;
         sprintf(newChar, "%f", final);
       }
-      if(character == '*'){
+      if(*input.stack[i].content == '*'){
         double final = firstNumber * secondNumber;
         sprintf(newChar, "%f", final);
       }
-      if(character == '/'){
+      if(*input.stack[i].content == '/'){
         double final = firstNumber / secondNumber;
         sprintf(newChar, "%f", final);
       }
-      if(character == '^'){
+      if(*input.stack[i].content == '^'){
         double final = pow(firstNumber, secondNumber);
         sprintf(newChar, "%f", final);
       }
