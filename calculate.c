@@ -3,19 +3,23 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <math.h>
+#include <string.h>
 
 double calculate(stack input){
-  stack* output = allocateNewStack(); 
+  stack* output = allocateNewStack();
   for(int i = 0; i < input.length; i++){
     char character = *input.stack[i].content;
-    if(isdigit(character)){
-      char* newChar = malloc(sizeof(char));
+    char* newChar = malloc(128*sizeof(char));
+    if(strcmp("pii", input.stack[i].content) == 0){
+      double pii = atan(1.0) * 4.0;
+      sprintf(newChar, "%f", pii);
+      addToStack(output, newChar);
+    }else if(isdigit(*input.stack[i].content)){
       newChar = input.stack[i].content;
       addToStack(output, newChar);
     }else{
       double secondNumber = atof(pop(output));
       double firstNumber = atof(pop(output));
-      char* newChar = malloc(sizeof(char));
       if(character == '+'){
         double final = firstNumber + secondNumber;
         sprintf(newChar, "%f", final);
