@@ -6,6 +6,9 @@
 
 int getPrecedence(char operator){
   if(operator == '^'){
+    return 5;
+  }
+  if(operator == 's'){
     return 4;
   }
   if(operator == '*'){
@@ -26,6 +29,9 @@ int getPrecedence(char operator){
 char* getAssociativity(char operator){
   if(operator == '^'){
     return "right";
+  }
+  if(operator == 's'){
+    return "left";
   }
   if(operator == '*'){
     return "left";
@@ -49,7 +55,7 @@ int sizeOfNumber(char number[]){
   while(*character != '\0'){
 
     newNumber++;
-    if(*character == '*' ||*character == '/' ||*character == '+' || *character == '-' || *character == '^'|| *character == '('|| *character == ')'){
+    if(*character == '*' ||*character == '/' ||*character == '+' || *character == '-' || *character == '^'|| *character == '('|| *character == ')' || *character == 's'){
       break;
     }
     character = &number[newNumber];
@@ -66,7 +72,7 @@ char* getNumber(char number[]){
   int index = 0;
   while(*character != '\0'){
     newString[index] = *character;
-    if(*character == '*' ||*character == '/' ||*character == '+' || *character == '-' || *character == '^'|| *character == '('|| *character == ')'){
+    if(*character == '*' ||*character == '/' ||*character == '+' || *character == '-' || *character == '^'|| *character == '('|| *character == ')' || *character == 's'){
       break;
     }
     character++;

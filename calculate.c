@@ -16,6 +16,11 @@ double calculate(stack input){
     }else if(isdigit(*input.stack[i].content)){
       sprintf(newChar, "%s", input.stack[i].content);
       addToStack(output, newChar);
+    }else if(*input.stack[i].content == 's'){
+      double firstNumber = atof(pop(output));
+      double sqrtValue = sqrt(firstNumber);
+      sprintf(newChar, "%f", sqrtValue);
+      addToStack(output, newChar);
     }else{
       double secondNumber = atof(pop(output));
       double firstNumber = atof(pop(output));
