@@ -14,7 +14,7 @@ double calculate(stack input){
       sprintf(newChar, "%f", pii);
       addToStack(output, newChar);
     }else if(isdigit(*input.stack[i].content)){
-      newChar = input.stack[i].content;
+      sprintf(newChar, "%s", input.stack[i].content);
       addToStack(output, newChar);
     }else{
       double secondNumber = atof(pop(output));
